@@ -30,8 +30,9 @@ const ExpenseForm = (props) => {
             date: new Date(userDate),
         }
 
-        // Resets form to blank after submission (2 way binding)
         props.onSaveExpenseData(formData)
+
+        // Resets form to blank after submission (2 way binding)
         setUserTitle('')
         setUserAmount('')
         setUserDate('')

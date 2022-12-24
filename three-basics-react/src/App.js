@@ -1,6 +1,6 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-
+// import ExpenseFilter from "./components/ExpenseFilter/ExpenseFilter";
 
 function App() {
   const expenses = [
@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <h1>React Basics</h1>
       <p>This is section 3 from the udemy course I'm following!</p>
+
       <NewExpense onExpenseSubmission={addExpenseHandler}/>
       <Expenses array={expenses}/>
       
