@@ -5,3 +5,9 @@
     width: 50rem;
     max-width: 95%;
   }
+
+.error-msg{
+  color: white;
+  text-align: center;
+  margin: 50px;
+}
