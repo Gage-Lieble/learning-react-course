@@ -8,7 +8,7 @@ import ExpensesList from "./ExpensesList"
 function Expenses(props){
     
     
-    const [date, setDate] = useState('2021')
+    const [date, setDate] = useState('2022')
 
     const getDate = (data) => {
         setDate(data)

@@ -3,6 +3,8 @@ import React, { useState} from 'react';
 
 const ExpenseForm = (props) => {
 
+
+
     const [userTitle, setUserTitle] = useState('')
     const [userAmount, setUserAmount] = useState('')
     const [userDate, setUserDate] = useState('')
@@ -22,6 +24,7 @@ const ExpenseForm = (props) => {
     }
 
     const submitHandler = (event) => {
+        console.log(event)
         event.preventDefault(); // Disables page reload on submit
 
         const formData = {
@@ -36,9 +39,29 @@ const ExpenseForm = (props) => {
         setUserTitle('')
         setUserAmount('')
         setUserDate('')
-
+        setExpandForm(false)
 
     }   
+
+    const openForm = (event) => {
+        event.preventDefault();
+        setExpandForm(true)
+    }
+
+    const closeForm = (event) => {
+        event.preventDefault();
+        setExpandForm(false)
+    }
+
+    const [expandForm, setExpandForm] = useState(false)
+
+    if(expandForm === false){
+        return(
+            <form onSubmit={openForm}>
+                <button type="submit">Add Expense</button>
+            </form>
+        )
+    }
 
     return (
 
@@ -58,6 +81,7 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button onClick={closeForm}>Cancel</button>
                 <button type="submit" >Add Expense</button>
             </div>
         </form>
