@@ -7,7 +7,7 @@ body{
 }
 
 .form-wrap{
-    background-color: rgb(123, 123, 123);
+    background-color: #F9F7F3;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -19,16 +19,27 @@ body{
 .form-wrap>input{
     padding: 10px;
     border-radius: 5px;
-    border: 0px;
+    border: 2px solid #F7A072;
     margin-bottom: 10px;
 }
 
 .form-wrap>label{
-    color: white;
     padding: 10px;
 }
 
 .form-wrap>input[type="submit"]{
-    margin-top: 15px;
+    margin-top: 30px;
     width: 100px;
+    background-color: #F7A072;
+    color: white;
+}
+
+
+.true{
+    display: block;
+    position: absolute;
+}
+
+.false{
+    display: none;
 }

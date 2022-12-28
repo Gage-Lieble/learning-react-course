@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import './UserForm.css'
-
+import ErrorModal from './ErrorModal';
 const UserForm = (props) => {
 
     const [nameUser, setNameUser] = useState('')
@@ -14,27 +14,36 @@ const UserForm = (props) => {
         setAgeUser(event.target.value)
     }
 
-
+    const [showModal, setShowModal] = useState(false)
     const handleForm = (event) =>{
-        
         event.preventDefault();
-        
-        const resultsData = {
-            name: nameUser,
-            age: ageUser,
+        if(nameUser === '' || ageUser === ''){
+            setShowModal(true)
+        }else{
+            setShowModal(false)
+            const resultsData = {
+                name: nameUser,
+                age: ageUser,
+            }
+            props.onSubmission(resultsData)
         }
-        props.onSubmission(resultsData)
+
+        setNameUser('')
+        setAgeUser('')
     }
     return(
-
-
-        <form onSubmit={handleForm} className="form-wrap">
-            <label htmlFor="username">Username</label>
-            <input type='text' value={nameUser} onChange={nameChange} name="username" id="username" />
-            <label htmlFor="age">Age(Years)</label>
-            <input type='text' value={ageUser} onChange={ageChange} name="age" id="age" />
-            <input type="submit"/>
-        </form>
+        <div className="form-wrap">
+            <div className={showModal.toString()}>
+                <ErrorModal showModal={setShowModal} />
+            </div>
+            <form onSubmit={handleForm} className="form-wrap">
+                <label htmlFor="username">Username</label>
+                <input type='text' value={nameUser} onChange={nameChange} name="username" id="username" autocomplete="off" />
+                <label htmlFor="age">Age(Years)</label>
+                <input type='text' value={ageUser} onChange={ageChange} name="age" id="age" autocomplete="off"/>
+                <input type="submit"/>
+            </form>
+        </div>
     )
 }
 

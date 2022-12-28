@@ -1,0 +1,27 @@
+.modal-wrap{
+    background-color: #EE6352;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 10px;
+    width: 275px;
+    height: 300px;
+    color: white;
+}
+.error-msg{
+    text-align: center;
+}
+
+.error-title{
+    text-align: left;
+}
+
+.error-close{
+    padding: 10px;
+    width: 150px;
+    background-color: #F9F7F3;
+    border: 0px;
+    border-radius: 5px;
+}

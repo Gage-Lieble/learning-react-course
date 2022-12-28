@@ -17,9 +17,10 @@ function App() {
 
   return (
     <div className="App">
-      <h2>User Form</h2>
+      <h3>User Form</h3>
       <UserForm onSubmission={addUser} />
       <UserList list={userData} />
+      
     </div>
   );
 }
