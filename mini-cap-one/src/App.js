@@ -11,7 +11,7 @@ function App() {
 
   const [userData, setUserData] = useState(userObject)
   const addUser = (user) => {
-    console.log(user)
+    console.log(`User added: ${user.name} is ${user.age} years old`)
     setUserData((prev) => { return [user, ...prev]})
   }
 
