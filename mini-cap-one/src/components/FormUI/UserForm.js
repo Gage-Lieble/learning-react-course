@@ -1,42 +1,43 @@
-import React, { useState} from 'react';
+import React, { useState, useRef} from 'react';
 import './UserForm.css'
 import ErrorModal from './ErrorModal';
 
 
 const UserForm = (props) => {
 
-    const [nameUser, setNameUser] = useState('')
-    const [ageUser, setAgeUser] = useState('')
-    const nameChange = (event) => {
-        setNameUser(event.target.value)
-    }
-    const ageChange = (event) => {
-        setAgeUser(event.target.value)
-    }
+    const nameInputRef = useRef()
+    const ageInputRef = useRef()
 
 
     const [showModal, setShowModal] = useState('false')
     const [ageTester, setAgeTester] = useState('')
     const handleForm = (event) =>{
         event.preventDefault();
-        if(nameUser === '' || ageUser === ''){
+    
+        const enteredName = nameInputRef.current.value
+        const enteredAge = ageInputRef.current.value
+
+        if(enteredName === '' || enteredAge === ''){
             setShowModal('true')
         }
-        else if(ageUser < 0){
+        else if(enteredAge < 0){
             setShowModal('true')
             setAgeTester('error')
         }
         else{
             setShowModal('false')
             const resultsData = {
-                name: nameUser,
-                age: ageUser,
+                name: enteredName,
+                age: enteredAge,
             }
             props.onSubmission(resultsData)
-        }
 
-        setNameUser('')
-        setAgeUser('')
+            
+        }
+        nameInputRef.current.value = ''
+        ageInputRef.current.value = ''
+
+
     }
 
     return(
@@ -46,10 +47,10 @@ const UserForm = (props) => {
             </div>
             <form onSubmit={handleForm} className="form-wrap">
                 <label htmlFor="username">Name</label>
-                <input type='text' value={nameUser} onChange={nameChange} name="username" id="username" autoComplete="off" />
+                <input ref={nameInputRef} type='text' name="username" id="username" autoComplete="off" />
                 <label htmlFor="age">Age(Years)</label>
-                <input type='text' value={ageUser} onChange={ageChange} name="age" id="age" autoComplete="off"/>
-                <input type="submit"/>
+                <input ref={ageInputRef} type='text' name="age" id="age" autoComplete="off"/>
+                <input  type="submit"/>
             </form>
         </div>
     )
