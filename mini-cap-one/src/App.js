@@ -16,12 +16,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    // <> or <React.Fragment> is a fragment that allows return without extra HTML tags
+    <> 
       <h3>User Form</h3>
       <UserForm onSubmission={addUser} />
       <UserList list={userData} />
       
-    </div>
+    </>
   );
 }
 
