@@ -4,10 +4,7 @@ import AddTodo from './components/form/AddTodo';
 
 
 let todoList = [
-  {'text': 'apples', 'complete': false},
-  {'text': 'pineapples', 'complete': false},
-  {'text': 'oranges', 'complete': false},
-  {'text': 'pears', 'complete': false},
+  {'text': 'Finish react project', 'complete': false},
 ]
 
 function App() {

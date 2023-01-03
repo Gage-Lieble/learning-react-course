@@ -2,9 +2,16 @@
 
 .error{
     border-color: red !important;
+    visibility: visible !important;
 }
 
 #add-todo-inp{
     border: 2px solid rgb(181, 181, 181);
     padding: 5px;
+}
+
+#len-error-msg{
+    color: red;
+    margin: 0px;
+    visibility: hidden;
 }

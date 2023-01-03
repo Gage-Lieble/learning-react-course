@@ -23,6 +23,7 @@ const AddTodo = (props) => {
         <form onSubmit={addTodoHandler}>
             <input maxLength="30" id="add-todo-inp" className={errorClass} ref={todoText} type="text" />
             <button type="submit">Add</button>
+            <h5 className={errorClass} id='len-error-msg'>must be 3+ characters</h5>
         </form>
     )
 }
