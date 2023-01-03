@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import TodoList from "./components/todos/TodoList";
+import AddTodo from './components/form/AddTodo';
+
+
 let todoList = [
   {'text': 'apples', 'complete': false},
   {'text': 'pineapples', 'complete': false},
@@ -25,11 +28,8 @@ function App() {
       }
       
     }else{
-      console.log('dELEETE')
-      console.log(data[1])
       setChangeComplete((prev) => {
         const newArray = prev.filter(item => item.text !== data[1]);
-        console.log(newArray)
         return newArray;
       })
     }
@@ -37,9 +37,14 @@ function App() {
     
   }
 
+  const addTodo = (data) => {
+    setChangeComplete((prev) => {return [{'text':data, 'complete': false},...prev]})
+  }
+
   return (
     <div className="App">
-      <h3>Todo</h3>
+      <h3>Todo List!</h3>
+      <AddTodo func={addTodo}/>
       <TodoList items={changeComplete} onSub={handleSwitch}/>
     </div>
   );
