@@ -1,12 +1,18 @@
-
+import React from 'react'
 import ButtonBase from "../UI/ButtonBase"
 import CartPrice from "./CartPrice"
 import './CartModal.css'
 
 
 const CartModal = (props) => {
+    
+    const closeCart = () => {
+    
+        props.close('')
+    }
     return (
-        <div id="modal-wrap">
+        <div id="modal-wrap" className={props.open}>
+            
             <h2>Your Cart</h2>
 
             {props.userCart.map((item) => (
@@ -20,8 +26,8 @@ const CartModal = (props) => {
             ))}
             <CartPrice userCart={props}/>
             <div id="cart-btn-wrap">
-                <ButtonBase btnName={"Close"} />
-                <ButtonBase btnName={"Order"}/>
+                <ButtonBase btnName={"Close"} action={closeCart}/>
+                <ButtonBase btnName={"Order"} action={() => {console.log('Order Sent! See you soon.')}}/>
             </div>
 
         </div>

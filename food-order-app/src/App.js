@@ -4,23 +4,29 @@ import NavBar from './comps/UI/Nav/NavBar';
 import CartModal from './comps/Cart/CartModal';
 
 let menuArray = [
-  {name: 'Burger', price: 7.50, ingrs:'Beef, Cheese, Lettuce, Tomato'},
-  {name: 'Pizza', price: 6.50, ingrs:'Cheese, Peperoni, Olives'},
-  {name: 'Taco', price: 2.50, ingrs:'Steal, Cheese, Tomato, Lettuce, Tortilla'},
+  {name: 'Cheese Burger', price: 5.55, ingrs:'Waygu beef, Cheddar Cheese, Grilled Onion, Pickles'},
+  {name: 'Ham Burger', price: 4.55, ingrs:'Waygu beef, Grilled Onion, Lettuce, Pickles'},
+  {name: 'Chicken Sandwhich', price: 6.05, ingrs:'Fried Chicken, Pickles, Mayo, Butter Sauce'},
+  {name: 'Loaded Hot Dawg', price: 3.55, ingrs:'Fried Weiner, Mustard, Ketchup, Relish, Sauerkraut'},
+  {name: 'Plain Hot Dawg', price: 2.55, ingrs:'Fried Weiner'},
 ]
 
 
 function App() {
   
   const [cart, setCart] = useState([])
+  const [open, setOpen] = useState('')
 
   const handleAddCart = (data) => {
     setCart(prev => ([...prev, data]))
-  
+  }
+
+  const viewCart = (command) => {
+    setOpen(command)
   }
   return (
     <div className="App">
-    <NavBar /> 
+    <NavBar cartMenu={viewCart} /> 
     <div id="desc-wrap">
       <h2>Food</h2>
     </div>
@@ -28,7 +34,7 @@ function App() {
     <MenuList menuList={menuArray} userCart={handleAddCart} />
 
 
-    <CartModal userCart={cart} />
+    <CartModal userCart={cart} open={open} close={viewCart}/>
     
     </div>
   );

@@ -1,0 +1,32 @@
+.menu-wrap{
+    background-color: rgb(241, 241, 241);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.menu-item{
+   
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.item-actions>form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.price{
+    color: red;
+}
+
+.ingred{
+    font-style: italic;
+}

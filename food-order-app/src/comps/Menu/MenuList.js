@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
-
+import './MenuList.css'
 import ButtonBase from '../UI/ButtonBase';
 
 const MenuList = (props) => {
 
     const [amountData, setAmountData] = useState()
-
     const handleAmount = (event) => {
         setAmountData(event.target.value)
-
     }
+
     const submitHandler = (event) => {
         event.preventDefault()
         let itemIndex = event.target[1].value
@@ -20,16 +19,17 @@ const MenuList = (props) => {
         }
 
         props.userCart(cartItem)
-        
+        let inputSelect = document.querySelector(`.input-${itemIndex}`)
+        inputSelect.value = ''
     }    
     return(
-        <ul>
+        <div className='menu-wrap'>
             {props.menuList.map((item, index) => (
-                <li key={index}>{index} {item.name}, ${item.price}, {item.ingrs} <form onSubmit={submitHandler}><input onChange={handleAmount} type="number" min="0" /> <ButtonBase btnName={'Add To Cart'}  value={index}  type="submit" /> </form></li>
+                <div className='menu-item' key={index}> <div className='item-info'><h3>{item.name}</h3>  <p className='ingred'>{item.ingrs}</p> <h4 className='price'>${item.price}</h4></div> <div className='item-actions'><form onSubmit={submitHandler}><div className='amount-wrap'>Amount <input className={`input-${index}`} style={{width: '50px', marginBottom: '15px'}}onChange={handleAmount} type="number" min="0" /></div> <ButtonBase btnName={'+ Add'}  value={index}  type="submit" /> </form></div></div>
             ))
             }
 
-        </ul>
+        </div>
     )
 }
 

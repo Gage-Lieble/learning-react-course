@@ -4,10 +4,15 @@
     background-color: red;
     display: flex;
     flex-direction: column;
+    visibility: hidden;
 }
 
 .item-wrap{
     background-color: pink;
     margin: 10px 0px 10px 0px;
     padding: 25px 0px 25px 0px;
+}
+
+.open {
+    visibility: visible !important;
 }
