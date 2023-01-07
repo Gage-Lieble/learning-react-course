@@ -4,11 +4,11 @@ import NavBar from './comps/UI/Nav/NavBar';
 import CartModal from './comps/Cart/CartModal';
 
 let menuArray = [
-  {name: 'Cheese Burger', price: 5.55, ingrs:'Waygu beef, Cheddar Cheese, Grilled Onion, Pickles'},
-  {name: 'Ham Burger', price: 4.55, ingrs:'Waygu beef, Grilled Onion, Lettuce, Pickles'},
-  {name: 'Chicken Sandwhich', price: 6.05, ingrs:'Fried Chicken, Pickles, Mayo, Butter Sauce'},
-  {name: 'Loaded Hot Dawg', price: 3.55, ingrs:'Fried Weiner, Mustard, Ketchup, Relish, Sauerkraut'},
-  {name: 'Plain Hot Dawg', price: 2.55, ingrs:'Fried Weiner'},
+  {name: 'Cheese Burger', price: 5.55, ingrs:'Classic American burger with cheese'},
+  {name: 'Ham Burger', price: 4.55, ingrs:'Classic American burger'},
+  {name: 'Chicken Sandwhich', price: 6.05, ingrs:'Southern fried goodness'},
+  {name: 'Loaded Hot Dawg', price: 3.55, ingrs:'Tasty and loaded'},
+  {name: 'Plain Hot Dawg', price: 2.55, ingrs:'Tasty and dry'},
 ]
 
 
