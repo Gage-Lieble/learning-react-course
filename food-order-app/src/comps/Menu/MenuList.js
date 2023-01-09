@@ -25,7 +25,21 @@ const MenuList = (props) => {
     return(
         <div className='menu-wrap'>
             {props.menuList.map((item, index) => (
-                <div className='menu-item' key={index}> <div className='item-info'><h3>{item.name}</h3>  <p className='ingred'>{item.ingrs}</p> <h4 className='price'>${item.price}</h4></div> <div className='item-actions'><form onSubmit={submitHandler}><div className='amount-wrap'>Amount <input className={`input-${index}`} style={{width: '50px', marginBottom: '15px'}}onChange={handleAmount} type="number" min="0" /></div> <ButtonBase btnName={'+ Add'}  value={index}  type="submit" /> </form></div></div>
+                <div className='menu-item' key={index}>
+                    <div className='item-info'>
+                        <h3>{item.name}</h3>  
+                        <p className='ingred'>{item.ingrs}</p>
+                         <h4 className='price'>${item.price}</h4>
+                    </div> 
+                    <div className='item-actions'>
+                        <form onSubmit={submitHandler}>
+                            <div className='amount-wrap'>
+                                Amount <input className={`input-${index}`} style={{width: '50px', marginBottom: '15px'}}onChange={handleAmount} type="number" min="0" />
+                            </div> 
+                            <ButtonBase btnName={'+ Add'}  value={index}  type="submit" /> 
+                        </form>
+                    </div>
+                </div>
             ))
             }
 

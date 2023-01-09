@@ -11,6 +11,14 @@ const CartModal = (props) => {
         props.close('')
     }
 
+    const addAmount = (item) => {
+        console.log('Add')
+        console.log(item)
+    }
+    const subAmount = (item) => {
+        console.log('Add')
+    }
+
 
     let cartContent = <h2>Your cart is empty.</h2>
     if(props.userCart.length > 0){
@@ -18,8 +26,8 @@ const CartModal = (props) => {
                 <span className="item-wrap" key={Math.random()}>
                     {item.item.name}
                     ${item.item.price}
-                    <ButtonBase btnName={"+"}/>
-                    <ButtonBase btnName={"-"}/>
+                    <ButtonBase action ={addAmount} btnName={"+"}/>
+                    <ButtonBase action ={subAmount} btnName={"-"}/>
                     {item.amount}
                 </span>
         ))
