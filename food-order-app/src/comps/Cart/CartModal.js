@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ButtonBase from "../UI/ButtonBase"
 import CartPrice from "./CartPrice"
 import './CartModal.css'
@@ -6,17 +6,33 @@ import './CartModal.css'
 
 const CartModal = (props) => {
     
+    useEffect(() => {
+        console.log('amount changes')
+    },[])
+
+
     const closeCart = () => {
     
         props.close('')
     }
 
     const addAmount = (item) => {
-        console.log('Add')
-        console.log(item)
+        let targetItem = item.target.value
+        let cartItems = props.userCart
+        for(let i = 0; i < cartItems.length; i++){
+            if(cartItems[i].item.name === targetItem){
+                props.changeAmount(i, 'add')
+            }
+        }
     }
     const subAmount = (item) => {
-        console.log('Add')
+        let targetItem = item.target.value
+        let cartItems = props.userCart
+        for(let i = 0; i < cartItems.length; i++){
+            if(cartItems[i].item.name === targetItem){
+                props.changeAmount(i, 'sub')
+            }
+        }
     }
 
 
@@ -32,8 +48,8 @@ const CartModal = (props) => {
                         </div>
                     </div>
                     <div>
-                        <ButtonBase action ={addAmount} btnName={"+"}/>
-                        <ButtonBase action ={subAmount} btnName={"-"}/>
+                        <ButtonBase action ={addAmount} btnName={"+"} value={item.item.name}/>
+                        <ButtonBase action ={subAmount} btnName={"-"} value={item.item.name}/>
 
                     </div>
                 </span>

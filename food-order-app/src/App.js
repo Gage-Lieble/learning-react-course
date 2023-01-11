@@ -43,6 +43,18 @@ function App() {
     
   }
 
+  const handleAmountChange = (index, which) => {
+    
+    if(which === 'add'){
+      let newAmount = Number(cart[index].amount) + 1
+      cart[index].amount = String(newAmount)
+    }else{
+      let newAmount = Number(cart[index].amount) - 1
+      cart[index].amount = String(newAmount)
+    }
+
+  }
+
   const viewCart = (command) => {
   
     setOpen(command)
@@ -57,7 +69,7 @@ function App() {
     <MenuList menuList={menuArray} userCart={handleAddCart} />
 
 
-    <CartModal userCart={cart} open={open} close={viewCart}/>
+    <CartModal userCart={cart} open={open} close={viewCart} changeAmount={handleAmountChange}/>
     
     </div>
   );

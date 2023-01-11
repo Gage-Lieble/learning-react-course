@@ -5,7 +5,7 @@
     min-height: 300px;
     visibility: hidden;
     position: absolute;
-    background-color: white;
+    background-color: rgb(241, 241, 241);
     padding: 10px 20px 25px 20px;
     display: flex;
     flex-direction: column;
@@ -25,6 +25,7 @@
     top: 0;
     left: 0;
     visibility: hidden;
+    backdrop-filter: blur(5px);
 }
 
 .item-wrap{
@@ -48,7 +49,7 @@
 }
 
 .item-amount-box{
-    background-color: white;
+    background-color: rgb(202, 202, 202);
     padding: 5px 10px 5px 10px;
 
 }

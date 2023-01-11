@@ -11,7 +11,7 @@ const CartPrice = (props) => {
 
     return (
         <>
-        <h3>Total: ${totalCount}</h3>
+        <h3>Total: {Intl.NumberFormat('en-US', {style:'currency', currency: 'USD'}).format(totalCount)}</h3>
         </>
     )
 }
