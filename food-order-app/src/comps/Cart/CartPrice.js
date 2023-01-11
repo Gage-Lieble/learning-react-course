@@ -11,7 +11,7 @@ const CartPrice = (props) => {
 
     return (
         <>
-        <div>{totalCount}</div>
+        <h3>Total: ${totalCount}</h3>
         </>
     )
 }
