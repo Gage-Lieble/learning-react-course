@@ -34,7 +34,7 @@ const MenuList = (props) => {
                     <div className='item-actions'>
                         <form onSubmit={submitHandler}>
                             <div className='amount-wrap'>
-                                Amount <input className={`input-${index}`} style={{width: '50px', marginBottom: '15px'}}onChange={handleAmount} type="number" min="1" required/>
+                                Amount <input className={`input-${index} amount-inp` } style={{width: '50px', marginBottom: '15px'}}onChange={handleAmount} type="number" min="1" required/>
                             </div> 
                             <ButtonBase btnName={'+ Add'}  value={index}  type="submit" /> 
                         </form>

@@ -6,7 +6,8 @@
     align-items: center;
     padding: 25px;
     border-radius: 15px;
-    margin-top: 50px;
+    margin-top: 25px;
+    margin-bottom: 150px;
 }
 
 
@@ -15,7 +16,9 @@
     margin: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
+    border-bottom: 1px solid rgb(193, 193, 193);
 }
 
 
@@ -32,4 +35,7 @@
 
 .ingred{
     font-style: italic;
+}
+.amount-inp{
+    width: 30px !important;
 }

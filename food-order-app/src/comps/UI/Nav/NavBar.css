@@ -1,10 +1,18 @@
 #nav-wrap{
-    border-bottom: 3px solid #f84141;
+    border-bottom: 3px solid rgb(83, 83, 83);
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: white;
     
+}
 
+#nav-wrap>span{
+    display: flex;
+}
+
+#burger-logo{
+    width: 50px;
+    margin-right: 15px;
 }

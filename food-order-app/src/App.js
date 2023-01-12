@@ -2,13 +2,16 @@ import React, {useState} from 'react'
 import MenuList from './comps/Menu/MenuList';
 import NavBar from './comps/UI/Nav/NavBar';
 import CartModal from './comps/Cart/CartModal';
+import PriceContext from './conts/price-context';
 
 let menuArray = [
-  {name: 'Cheese Burger', price: 5.55, ingrs:'Classic American burger with cheese'},
-  {name: 'Ham Burger', price: 4.55, ingrs:'Classic American burger'},
-  {name: 'Chicken Sandwhich', price: 6.05, ingrs:'Southern fried goodness'},
-  {name: 'Loaded Hot Dawg', price: 3.55, ingrs:'Tasty and loaded'},
-  {name: 'Plain Hot Dawg', price: 2.55, ingrs:'Tasty and dry'},
+  {name: 'The Western Bacon Burger', price: 6.79, ingrs:'100% beef patty, three stripes of bacon, topped with American cheese and deep fried, crispy onions.'},
+  {name: 'The Bare Burger', price: 4.79, ingrs:'100% beef patty, freshly chopped lettuce and tomato, with sliced red onion on top.'},
+  {name: 'The Clucker!', price: 6.79, ingrs:'Crispy deep fried chicken thigh, sliced pickles, and our secret house ranch, capped with a Brioche bun.'},
+  {name: 'The True Fry', price: 3.25, ingrs:'Thinly cut potatoes, deep fried to a crispy shell, and seasoned heavily with salt.'},
+  {name: 'BIG COLA', price: 1, ingrs:'1 size and thats it, Large!'},
+ 
+  
 ]
 
 
@@ -65,20 +68,19 @@ function App() {
     setOpen(command)
   }
   return (
-    <div className="App">
+    <>
     <NavBar cartMenu={viewCart} /> 
+    <div className="App">
     
     <MenuList menuList={menuArray} userCart={handleAddCart} />
-
-    <CartModal userCart={cart} open={open} close={viewCart} changeAmount={handleAmountChange}/>
-    
+    <PriceContext.Provider value={cart}>
+      <CartModal userCart={cart} open={open} close={viewCart} changeAmount={handleAmountChange}/>
+    </PriceContext.Provider>
+  
     </div>
+    
+    </>
   );
 }
 
 export default App;
-
-// Menu list with add to cart buttons, amount, price, title, ingredients
-
-// Cart modal with close/order button, amount changer, title, price, amount
-

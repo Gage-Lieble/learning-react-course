@@ -4,6 +4,7 @@ import CartPrice from "./CartPrice"
 import './CartModal.css'
 
 
+
 const CartModal = (props) => {
     
     const [updateCart, setUpdateCart] = useState(0)
@@ -39,7 +40,7 @@ const CartModal = (props) => {
     }
 
 
-    let cartContent = <h2 id="empty-msg">Your cart is empty.</h2>
+    let cartContent = <h2 id="empty-msg">Your bag is empty.</h2>
     if(props.userCart.length > 0){
         cartContent =  props.userCart.map((item) => (
                 <span className="item-wrap" key={Math.random()}>
@@ -59,6 +60,12 @@ const CartModal = (props) => {
         ))
     }
 
+    let buttonColor = true
+
+    if(props.userCart.length === 0){
+        buttonColor = false
+    }
+
 
     return (
         <>
@@ -67,9 +74,9 @@ const CartModal = (props) => {
                 <h2>Your Cart</h2>
                 {cartContent}
                 <div id="cart-btn-wrap">
-                    <CartPrice userCart={props}/>
-                    <ButtonBase id="close-btn"  btnName={"Close"} action={closeCart}/>
-                    <ButtonBase btnName={"Order"} action={() => {console.log('Order Sent! See you soon.')}}/>
+                    <CartPrice/>
+                    <ButtonBase className={`btn-${!buttonColor}`} id="close-btn" btnName={"Close"} action={closeCart}/>
+                    <ButtonBase className={`btn-${buttonColor}`} btnName={"Order"} action={() => {console.log('Order Sent! See you soon.')}}/>
                 </div>
 
             </div>

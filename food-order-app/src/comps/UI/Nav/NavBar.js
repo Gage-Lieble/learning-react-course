@@ -1,6 +1,7 @@
 
 import ButtonBase from "../ButtonBase"
 import './NavBar.css'
+import logo from '../../../static/imgs/burger-logo.svg'
 const NavBar = (props) => {
 
     const openCart = () => {
@@ -8,7 +9,7 @@ const NavBar = (props) => {
     }   
     return (
         <div id="nav-wrap">
-            <h2>REACTIVE MEALS</h2> <ButtonBase btnName={"View Cart"} action={openCart}/>
+           <span> <img id="burger-logo" src={logo} alt="burger-logo" /><h2>REACTIVE MEALS</h2></span> <ButtonBase btnName={"View Bag"} action={openCart}/>
         </div>
     )
 }
