@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import ButtonBase from "../UI/ButtonBase"
 import CartPrice from "./CartPrice"
 import './CartModal.css'
@@ -6,9 +6,9 @@ import './CartModal.css'
 
 const CartModal = (props) => {
     
-    useEffect(() => {
-        console.log('amount changes')
-    },[])
+    const [updateCart, setUpdateCart] = useState(0)
+
+    useEffect(() => {},[updateCart]) // Reloads cart after user changes amount
 
 
     const closeCart = () => {
@@ -17,6 +17,8 @@ const CartModal = (props) => {
     }
 
     const addAmount = (item) => {
+        
+        setUpdateCart(Math.random())
         let targetItem = item.target.value
         let cartItems = props.userCart
         for(let i = 0; i < cartItems.length; i++){
@@ -26,6 +28,7 @@ const CartModal = (props) => {
         }
     }
     const subAmount = (item) => {
+        setUpdateCart(Math.random())
         let targetItem = item.target.value
         let cartItems = props.userCart
         for(let i = 0; i < cartItems.length; i++){
@@ -47,7 +50,7 @@ const CartModal = (props) => {
                             <h4 className='item-amount-box'>X{item.amount}</h4>
                         </div>
                     </div>
-                    <div>
+                    <div className='amount-btn-wrap'>
                         <ButtonBase action ={addAmount} btnName={"+"} value={item.item.name}/>
                         <ButtonBase action ={subAmount} btnName={"-"} value={item.item.name}/>
 
@@ -63,10 +66,9 @@ const CartModal = (props) => {
             <div id="modal-wrap" className={props.open}>
                 <h2>Your Cart</h2>
                 {cartContent}
-
                 <div id="cart-btn-wrap">
                     <CartPrice userCart={props}/>
-                    <ButtonBase btnName={"Close"} action={closeCart}/>
+                    <ButtonBase id="close-btn"  btnName={"Close"} action={closeCart}/>
                     <ButtonBase btnName={"Order"} action={() => {console.log('Order Sent! See you soon.')}}/>
                 </div>
 

@@ -6,9 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(62, 62, 62);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
 }
 
 code {
@@ -23,5 +21,6 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   overflow-x: hidden;
 }

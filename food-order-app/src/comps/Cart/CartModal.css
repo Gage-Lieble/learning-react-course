@@ -35,7 +35,7 @@
     padding: 15px;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid #f84141;
 }
 
 .left-content{
@@ -71,4 +71,22 @@
 
 #empty-msg{
     text-align: center;
+}
+
+.amount-btn-wrap{
+    display: flex;
+    flex-direction: column;
+}
+.amount-btn-wrap>*{
+    width: 50px;
+    margin-top: 5px;
+    
+}
+
+#close-btn{
+    background-color: rgb(187, 187, 187);
+}
+
+#close-btn:hover{
+    background-color: #a4a4a4;
 }

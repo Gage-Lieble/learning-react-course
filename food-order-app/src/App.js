@@ -14,9 +14,10 @@ let menuArray = [
 
 function App() {
   
+
   const [cart, setCart] = useState([])
   const [open, setOpen] = useState('')
-
+  
   const handleAddCart = (data) => {
 
     let isMatch = -2
@@ -50,7 +51,11 @@ function App() {
       cart[index].amount = String(newAmount)
     }else{
       let newAmount = Number(cart[index].amount) - 1
-      cart[index].amount = String(newAmount)
+      if (newAmount > 0){
+        cart[index].amount = String(newAmount)
+      }else{
+        cart.splice(index, 1)
+      }
     }
 
   }
@@ -62,12 +67,8 @@ function App() {
   return (
     <div className="App">
     <NavBar cartMenu={viewCart} /> 
-    <div id="desc-wrap">
-      <h2>Food</h2>
-    </div>
-
+    
     <MenuList menuList={menuArray} userCart={handleAddCart} />
-
 
     <CartModal userCart={cart} open={open} close={viewCart} changeAmount={handleAmountChange}/>
     

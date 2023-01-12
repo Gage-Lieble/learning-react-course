@@ -2,7 +2,7 @@ import './Button.css'
 
 const ButtonBase = (props) => {
     return(
-        <button type={props.type} onClick={props.action} value={props.value}>{props.btnName}</button>
+        <button id={props.id} type={props.type} onClick={props.action} value={props.value}>{props.btnName}</button>
     )
 }
 
