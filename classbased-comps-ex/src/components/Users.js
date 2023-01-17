@@ -17,7 +17,12 @@ class Users extends Component{
     this.setState((prev) => {return {showUsers: !prev.showUsers}})
   }
 
- 
+  componentDidUpdate() {
+    
+    if (this.props.users.length === 0){
+      throw new Error('No Users!')
+    }
+  } 
 
   render(){
     const usersList = (
